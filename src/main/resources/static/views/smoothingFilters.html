@@ -1,0 +1,168 @@
+<div ng-controller="smoothingFilterController" class="container">
+
+    <!-- div for success and error message -->
+    <div ng-show="showSuccessMsg" class="alert alert-success alert-dismissible fade show"  role="alert">
+        {{successMsg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div ng-show="showErrorMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{errorMsg}}
+        <button type="button"  class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div  class="card  mx-auto mt-5">
+
+        <div class="card-header" > Smoothing Filter</div>
+        <div class="card-body">
+
+        <form>
+         <div class="form-group">
+
+
+                 <div class="form-group">
+                     <div class="form-row">
+                         <div class="col-md-4 ">
+
+                             <div class="form-group">
+                     <label for="exampleFormControlSelect1">Select Filter</label>
+                     <select class="form-control" ng-model="filterType" id="exampleFormControlSelect1" ng-options="filter.name for filter in filters">
+                     </select>
+                             </div>
+                         </div>
+                         <div ng-if="showGaussianControls  || medianFilterControls" class="col-md-2">
+                             <div  class="form-group">
+                                 <label for="gaussianKernelSize"> Select kernel Size</label>
+                                 <select id="gaussianKernelSize" class="form-control" ng-change="kernelSizeChange()" ng-model="$parent.gaussianKernelSize">
+                                     <option selected disabled hidden  value="-1"   > Select </option>
+                                     <option value="3">3</option>
+                                     <option value="5">5</option>
+                                 </select>
+                             </div>
+                         </div>
+
+                         <div class="col-md-3" ng-if="showGaussianControls" >
+                             <label for="sigmaspace1">Sigma </label>
+                             <input id="sigmaspace1" ng-model="$parent.sigmaSpace" class="form-control" placeholder="Sigma  ">
+                         </div>
+
+
+
+                         <div  ng-if="averagingFilterControls">
+                             <div class="form-group">
+                                 <div class="form-row">
+                                 <div class="col-md-3">
+                                 <label for="kernelwidth">Kernel width</label>
+                                 <input  id="kernelwidth" ng-model="$parent.kernelWidth"  class="form-control" placeholder=" kernel Width">
+                                 </div>
+                                     <div class="col-md-3">
+                                     <label for="kernelHeight">Kernel Height</label>
+                                     <input  id="kernelHeight" ng-model="$parent.kernelHeight"  class="form-control" placeholder=" kernel Height">
+                                   </div>
+
+                                     <div class="col-md-3">
+                                         <label for="pointX">Point X</label>
+                                         <input  id="pointX" ng-model="$parent.pointX"  class="form-control" placeholder=" Point X">
+                                     </div>
+                                     <div class="col-md-3">
+                                         <label for="pointY">Point Y</label>
+                                         <input  id="pointY" ng-model="$parent.pointY"  class="form-control" placeholder=" Point Y">
+                                     </div>
+                                 </div>
+                             </div>
+
+                         </div>
+
+                         <div class="col-md-8" ng-if="bilateralFilterControls">
+                             <div class="form-group">
+                                 <div class="form-row">
+                                     <div class="col-md-4">
+                                     <label for="diameter">Diameter</label>
+                                      <input id="diameter" ng-model="$parent.diameter" class="form-control" placeholder=" Diameter">
+                                     </div>
+                                     <div class="col-md-4">
+                                         <label for="sigmacolor"> Sigma Color</label>
+                                         <input id="sigmacolor" ng-model="$parent.sigmaColor" class="form-control" placeholder="Sigma Color">
+                                     </div>
+                                     <div class="col-md-4">
+                                         <label for="sigmaspace">Sigma Space</label>
+                                         <input id="sigmaspace" ng-model="$parent.sigmaSpace" class="form-control" placeholder="Sigma Space ">
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+                 </div>
+
+
+
+
+                 <div class="form-group">
+                     <div class="form-row">
+                         <div class="col-md-4">
+                             <label for="exampleFormControlFile1"> Upload file </label>
+                             <input type="file" class="form-control-file"  ng-file-model="file" id="exampleFormControlFile1">
+                         </div>
+                         <div class="col-md-8">
+
+                             <div style="height:200px">
+                                 <img  style="height:200px;" ng-src="{{file.url}}">
+                             </div>
+
+
+
+                         </div>
+                         </div>
+
+                     </div>
+
+
+
+
+
+
+
+
+
+
+         </div>
+
+
+            <button type="submit" class="btn btn-primary" ng-click="generate()">Generate </button>
+        </form>
+
+
+            <!-- result image  -->
+
+            <div   ng-show="resultDiv"  class="form-group  mt-5" >
+
+                <div class="form-row">
+
+                    <div class="col-md-8 offset-md-4">
+
+                        <img style="height:200px;" ng-src="data:image/png;base64,{{outputImage}}">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-8 offset-md-4">
+                        <a class=" small"  href="" ng-click="download()">Download </a>
+                        <a class=" small" href="" ng-click="email()"> Email  </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="downloadDiv">
+    </div>
+</div>

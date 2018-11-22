@@ -1,0 +1,54 @@
+<div class="container p-5" ng-controller="usersController">
+
+    <form>
+
+        <div class="form-row">
+            <div class="form-row mt-3">
+            <label for="usersearchbox"> Enter first Name/ last Name  </label>
+            <input type="text" class="form-control" id="usersearchbox" ng-model="searchString">
+            </div>
+        </div>
+
+        <div class="form-row mt-3" >
+
+            <div class="col-md-3">
+                <button class="btn btn-primary btn-block" ng-click="searchUsers()">  Search </button>
+            </div>
+
+        </div>
+
+
+    </form>
+
+
+    <table class="table table-bordered mt-5">
+
+        <thead>
+        <tr >
+
+            <td class="">First Name</td>
+            <td class=""> LastName </td>
+            <td class=""> Email Id </td>
+            <td class=""> User Type</td>
+            <td class="">Action</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  ng-repeat="user in users">
+
+            <td class="">{{user.firstName}}</td>
+            <td class="">{{user.lastName}}</td>
+            <td class="">{{user.emailId}}</td>
+            <td class="">{{user.premiumUser==1?'Premium user': 'Standard User'}}</td>
+            <td class="">
+                <a class=" small p-2"  href="" ng-click="deleteUser($index)">Delete </a>
+                <a class="small p-2" href="" ng-show="user.premiumUser==1"  ng-click="downgradeUser($index)"> Downgrade </a>
+                <a class="small p-2" href="" ng-show="user.premiumUser==0"  ng-click="upgradeUser($index)"> Upgrade </a>
+
+            </td>
+
+        </tr>
+        </tbody>
+
+    </table>
+</div>

@@ -1,0 +1,163 @@
+<div ng-controller="sharpeningController" class="container">
+
+    <!-- div for success and error message -->
+    <div ng-show="showSuccessMsg" class="alert alert-success alert-dismissible fade show"  role="alert">
+        {{successMsg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div ng-show="showErrorMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{errorMsg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div  class="card  mx-auto mt-5">
+        <div class="card-header" > Sharpening and Edge Detection</div>
+        <div class="card-body">
+
+            <form>
+
+                <div class="form-group">
+
+                    <div class="form-row">
+
+                        <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Select Filter</label>
+                            <select class="form-control" ng-model="filterType" id="exampleFormControlSelect1" ng-options="filter.name for filter in filters">
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                        <div class="col-md-8" >
+
+                            <div class="form-row" ng-show="showCannyControls">
+
+                            <div  class="col-md-3">
+                                <div class="form-group">
+                                   <label for="threshold1"> Threshold 1</label>
+                                   <input type="text" class="form-control" id="threshold1" ng-model="threshold1">
+                                </div>
+
+                            </div>
+                            <div  class="col-md-3">
+                                <div class="form-group">
+                                    <label for="threshold2"> Threshold 2</label>
+                                    <input type="text" class="form-control" id="threshold2" ng-model="threshold2">
+                                </div>
+
+                            </div>
+                                <div  class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="threshold2"> Kernel Width </label>
+                                        <input type="text" class="form-control" id="kernelWidth" ng-model="kernelWidth">
+                                    </div>
+
+                                </div>
+                                <div  class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="threshold2"> Kernel Height</label>
+                                        <input type="text" class="form-control" id="kernelHeight" ng-model="kernelHeight">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-row" ng-show="showLaplaceControls">
+                              <div class="col-md-4" >
+                                  <label for="ksize">Kernel Size</label>
+                                  <input type="text"  ng-model="ksize" id="ksize" class="form-control">
+                              </div>
+                                <div class="col-md-4" >
+                                    <label for="scale">Scale</label>
+                                    <input type="text"  ng-model="scale" id="scale" class="form-control">
+                                </div>
+                                <div class="col-md-4" >
+                                    <label for="delta">Delta</label>
+
+                                    <input type="text"  ng-model="delta" id="delta" class="form-control">
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="form-row" ng-show="showSobelControls">
+
+                                <div class="col-md-4">
+                                    <label for="dx"> Dx </label>
+                                    <input type="text" ng-model="dx" id="dx" class="form-control">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="dy">Dy</label>
+                                    <input type="text" ng-model="dy" id="dy" class="form-control">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <label for="exampleFormControlFile1"> Upload file </label>
+                            <input type="file" class="form-control-file"  ng-file-model="file" id="exampleFormControlFile1">
+                        </div>
+                        <div class="col-md-8">
+
+                            <div style="height:200px">
+                                <img  style="height:200px;" ng-src="{{file.url}}">
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <button type="submit" class="btn btn-primary" ng-click="generate()">Generate </button>
+
+            </form>
+
+
+            <div   ng-show="resultDiv"  class="form-group mt-5" >
+                <div class="form-row">
+
+                    <div class="col-md-8 offset-md-4">
+
+                        <img style="height:200px;" ng-src="data:image/png;base64,{{outputImage}}">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-8 offset-md-4">
+                        <a class=" small"  href="" ng-click="download()">Download </a>
+                        <a class=" small" href="" ng-click="email()"> Email  </a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        </div>
+</div>

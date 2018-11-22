@@ -1,0 +1,36 @@
+<div>
+
+
+    <table class="table table-bordered mt-5">
+        <thead>
+        <tr class="d-flex">
+            <td class="col-1">#</td>
+            <td class="col-2">File Name</td>
+            <td class="col-1"> Size </td>
+            <td class="col-5"> View</td>
+             <td class="col-3">Action</td>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr  class="d-flex" ng-repeat="file in files">
+
+            <td class="col-1">{{$index}}</td>
+            <td class="col-2">{{file.fileName}}</td>
+            <td class="col-1">{{(file.formattedSize)}}</td>
+           <td class="col-5">
+           <img  style="height:200px;" ng-src="data:image/png;base64,{{file.imageAsBase64}}">
+          </td>
+            <td class="col-3">
+                <a class=" small p-2"  href="" ng-click="delete($index)">Delete </a>
+                <a class=" small p-2"  href="" ng-click="download($index)">Download </a>
+                <a class=" small p-2" href="" ng-click="email($index)"> Email  </a>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+</div>

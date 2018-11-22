@@ -1,0 +1,50 @@
+<div ng-controller="loginController" class="container">
+
+  <!-- div for success and error message -->
+  <div ng-show="showSuccessMsg" class="alert alert-success alert-dismissible fade show"  role="alert">
+    {{successMsg}}
+    <button type="button" class="close" ng-click="hideSuccessMsg()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div ng-show="showErrorMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{errorMsg}}
+    <button type="button" ng-click="hideErrorMsg()" class="close" >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+
+
+  <div class="card card-register mx-auto mt-5">
+    <div class="card-header">Login</div>
+    <div class="card-body">
+       <form>
+
+         <div class="form-group">
+           <div class="form-label-group">
+             <input type="text" id="inputUserName" class="form-control"  ng-model="userName" placeholder="User Name" required="required">
+             <label for="inputUserName">User Name</label>
+           </div>
+         </div>
+
+         <div class="form-group">
+           <div class="form-label-group">
+             <input type="password" id="password" class="form-control"  ng-model="password" placeholder="password" required="required">
+             <label for="password">Password </label>
+           </div>
+         </div>
+
+         <a class="btn btn-primary btn-block" ng-click="login()" >Login</a>
+
+       </form>
+
+      <div class="text-center">
+
+
+      </div>
+    </div>
+  </div>
+
+</div>

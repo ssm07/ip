@@ -1,0 +1,48 @@
+<div ng-controller="adminDashboardController" class="container">
+
+    <!-- div for success and error message -->
+    <div ng-show="showSuccessMsg" class="alert alert-success alert-dismissible fade show"  role="alert">
+        {{successMsg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div ng-show="showErrorMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{errorMsg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <!-- div for admin dashboard -->
+<div >
+
+
+
+
+
+
+
+    <uib-tabset active="0">
+        <uib-tab   heading="Production Cycle" index="0">
+            <div ng-include="'/views/productionCycle.html'"></div>
+        </uib-tab>
+        <uib-tab heading="Users" index="1">
+            <div ng-include="'/views/users.html'"></div>
+        </uib-tab>
+    </uib-tabset>
+
+
+
+
+
+
+</div>
+
+    <!-- div for  user dashboard -->
+<div >
+
+</div>
+
+</div>

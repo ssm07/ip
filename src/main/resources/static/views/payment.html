@@ -1,0 +1,37 @@
+<div>
+<div class="form-group">
+    <div class="form-group">
+        <input type="text" id="cardNumber" class="form-control"  ng-model="cardNumber" placeholder="Card Number" required="required">
+    </div>
+</div>
+<div class="form-group">
+    <div class="form-row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="text" id="cardexpirationdate" class="form-control" placeholder=" Expiration Date (MM/YY)" required="required" ng-model="expirationDateAsString" autofocus="autofocus">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="text" id="cardcvcode" class="form-control" placeholder="CV Code" ng-model="cvv" required="required">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="form-group">
+        <input type="text" id="cardHolderName" class="form-control"  ng-model="cardHolderName" placeholder="Card Holder Name" required="required">
+    </div>
+</div>
+
+<div  class="form-group">
+    <div class="form-group">
+        <select  ng-model="subMonths" class="form-control">
+            <option  selected disabled hidden value=""> Select </option>
+            <option value="1"> One month for $3  </option>
+            <option value="3"> Three months for $5  </option>
+            <option value="12"> One year for $10 </option>
+        </select>
+    </div>
+</div>
+</div>

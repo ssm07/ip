@@ -1,0 +1,152 @@
+
+
+
+    <div ng-controller="registerController" class="container">
+
+      <!-- div for success and error message -->
+      <div ng-show="showSuccessMsg" class="alert alert-success alert-dismissible fade show"  role="alert">
+          {{successMsg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div ng-show="showErrorMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{errorMsg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <div class="card card-register mx-auto mt-5">
+        <div class="card-header">Register an Account</div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" ng-model="firstName" autofocus="autofocus">
+                    <label for="firstName">First name</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="text" id="lastName" class="form-control" placeholder="Last name" ng-model="lastName" required="required">
+                    <label for="lastName">Last name</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="form-group">
+                  <div class="form-label-group">
+                      <input type="text" id="inputUserName" class="form-control"  ng-blur="isUserNameAvailable()"  ng-model="userName" placeholder="User Name" required="required">
+                      <label for="inputUserName">User Name</label>
+                  </div>
+              </div>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control"  ng-model="emailId" placeholder="Email address" required="required">
+                <label for="inputEmail">Email address</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="password" id="inputPassword" ng-model="password" class="form-control" placeholder="Password" required="required">
+                    <label for="inputPassword">Password</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="password" id="confirmPassword" ng-model="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
+                    <label for="confirmPassword">Confirm password</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <input type="radio"   value="premiumUser"  name="typeofuser" ng-model="typeofuser"> Premium User
+                    </div>
+                    <div class="col-md-6">
+                        <input type="radio"  value="standardUser" name="typeofuser"  ng-model="typeofuser">  Standard  User
+
+                    </div>
+                </div>
+              </div>
+
+
+            <div  ng-show="showPaymentModule">
+
+              <div class="form-group">
+                <div class="form-label-group">
+                  <input type="text" id="cardNumber" class="form-control"  ng-model="cardNumber" placeholder="Card Number" required="required">
+
+                  <label for="cardNumber">Card Number</label>
+                </div>
+              </div>
+
+
+
+
+
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <div class="form-label-group">
+                      <input type="text" id="cardexpirationdate" class="form-control" placeholder=" Expiration Date (MM/YY)" required="required" ng-model="expirationDateAsString" autofocus="autofocus">
+                      <label for="cardexpirationdate"> Expiration Date (MM/YY)</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-label-group">
+                      <input type="text" id="cardcvcode" class="form-control" placeholder="Last name" ng-model="cvv" required="required">
+                      <label for="cardcvcode">CV Code</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <div class="form-label-group">
+                  <input type="text" id="cardHolderName" class="form-control"  ng-model="cardHolderName" placeholder="Card Holder Name" required="required">
+
+                  <label for="cardHolderName">Card Holder Name</label>
+                </div>
+              </div>
+
+
+               <div  class="form-group">
+                   <div class="form-label-group">
+                     <select  ng-model="subMonths" class="form-control">
+                       <option  selected disabled hidden value=""> Select </option>
+                       <option value="1"> One month for $3  </option>
+                       <option value="3"> Three months for $5  </option>
+                       <option value="12"> One year for $10 </option>
+
+
+                     </select>
+                   </div>
+
+               </div>
+
+            </div>
+
+            <a class="btn btn-primary btn-block" ng-click="register()" >Register</a>
+          </form>
+          <div class="text-center">
+            <a class="d-block small mt-3" href="/iprocessor/login">Login Page</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+

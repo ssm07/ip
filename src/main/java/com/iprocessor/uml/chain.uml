@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="145.0">com.iprocessor.service.AveragingFilter</node>
+    <node x="586.0" y="145.0">com.iprocessor.service.CannyFilter</node>
+    <node x="1025.5" y="0.0">com.iprocessor.service.Chain</node>
+    <node x="1758.0" y="145.0">com.iprocessor.service.MedianFilter</node>
+    <node x="293.0" y="145.0">com.iprocessor.service.BilateralFilter</node>
+    <node x="2051.0" y="145.0">com.iprocessor.service.SobelFilter</node>
+    <node x="0.0" y="265.0">com.iprocessor.service.FilterService</node>
+    <node x="1465.0" y="145.0">com.iprocessor.service.HistogramEqualization</node>
+    <node x="1172.0" y="145.0">com.iprocessor.service.LaplaceFilter</node>
+    <node x="879.0" y="145.0">com.iprocessor.service.GaussianFilter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.iprocessor.service.SobelFilter" target="com.iprocessor.service.Chain">
+      <point x="0.0" y="-37.5" />
+      <point x="2187.5" y="95.0" />
+      <point x="1281.4375" y="95.0" />
+      <point x="119.4375" y="37.5" />
+    </edge>
+    <edge source="com.iprocessor.service.CannyFilter" target="com.iprocessor.service.Chain">
+      <point x="0.0" y="-37.5" />
+      <point x="722.5" y="115.0" />
+      <point x="1110.8125" y="115.0" />
+      <point x="-51.1875" y="37.5" />
+    </edge>
+    <edge source="com.iprocessor.service.HistogramEqualization" target="com.iprocessor.service.Chain">
+      <point x="0.0" y="-37.5" />
+      <point x="1601.5" y="115.0" />
+      <point x="1213.1875" y="115.0" />
+      <point x="51.1875" y="37.5" />
+    </edge>
+    <edge source="com.iprocessor.service.MedianFilter" target="com.iprocessor.service.Chain">
+      <point x="0.0" y="-37.5" />
+      <point x="1894.5" y="105.0" />
+      <point x="1247.3125" y="105.0" />
+      <point x="85.3125" y="37.5" />
+    </edge>
+    <edge source="com.iprocessor.service.LaplaceFilter" target="com.iprocessor.service.Chain">
+      <point x="0.0" y="-37.5" />
+      <point x="1308.5" y="125.0" />
+      <point x="1179.0625" y="125.0" />
+      <point x="17.0625" y="37.5" />
+    </edge>
+    <edge source="com.iprocessor.service.GaussianFilter" target="com.iprocessor.service.Chain">
+      <point x="0.0" y="-37.5" />
+      <point x="1015.5" y="125.0" />
+      <point x="1144.9375" y="125.0" />
+      <point x="-17.0625" y="37.5" />
+    </edge>
+    <edge source="com.iprocessor.service.BilateralFilter" target="com.iprocessor.service.Chain">
+      <point x="0.0" y="-37.5" />
+      <point x="429.5" y="105.0" />
+      <point x="1076.6875" y="105.0" />
+      <point x="-85.3125" y="37.5" />
+    </edge>
+    <edge source="com.iprocessor.service.AveragingFilter" target="com.iprocessor.service.Chain">
+      <point x="0.0" y="-37.5" />
+      <point x="136.5" y="95.0" />
+      <point x="1042.5625" y="95.0" />
+      <point x="-119.4375" y="37.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="1395.5" y="160.50000000000023" />
+  <SelectedNodes>
+    <node>com.iprocessor.service.Chain</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
